@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import Layout from "Layout";
+import { useMemo } from "react";
+import "./App.css";
 
 function App() {
+  // Dark theme
+  const darkTheme = useMemo(() => {
+    return createMuiTheme({
+      palette: {
+        type: "dark",
+      },
+      overrides: {
+        MuiCard: {
+          root: {
+            // boxShadow: "2px 2px 2px 0px rgba(255,255,255, 0.5)",
+          },
+        },
+      },
+      typography: {
+        fontFamily: "Comic Neue",
+      },
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div className="App">
+        <Layout />
+      </div>
+    </ThemeProvider>
   );
 }
 
