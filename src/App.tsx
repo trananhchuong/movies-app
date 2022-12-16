@@ -1,8 +1,8 @@
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Layout from "Layout";
 import { useMemo } from "react";
-import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "./App.css";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -22,9 +22,7 @@ function App() {
       },
       overrides: {
         MuiCard: {
-          root: {
-            // boxShadow: "2px 2px 2px 0px rgba(255,255,255, 0.5)",
-          },
+          root: {},
         },
       },
       typography: {

@@ -1,13 +1,13 @@
-import { useState, useEffect, ReactElement } from "react";
-import styles from "./index.module.css";
-import SearchBox from "components/SearchBox";
-import { useInfiniteQuery } from "react-query";
-import MovieCard, { MovieCardProps } from "components/MovieCard";
-import Skeleton from "components/MovieCard/Skeleton";
 import { Grid } from "@material-ui/core";
-import InfiniteScroll from "react-infinite-scroll-component";
 import moviesApi from "api/moviesApi";
+import MovieCard from "components/MovieCard";
+import Skeleton from "components/MovieCard/Skeleton";
+import SearchBox from "components/SearchBox";
 import { getImageFullPath } from "constants/apiConstants";
+import { ReactElement, useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useInfiniteQuery } from "react-query";
+import styles from "./index.module.css";
 
 const Home = (): ReactElement => {
   const [searchText, setSearchText] = useState("");

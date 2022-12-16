@@ -8,7 +8,7 @@ export type GetListMoviesTheatersProps = {
 
 const moviesApi = {
   getListMoviesTheaters: (params?: GetListMoviesTheatersProps) => {
-    const url = `${BASE_API_URL}/movie/popular`;
+    const url = `${BASE_API_URL}/movie/now_playing`;
     return axiosClient.get(url, { params });
   },
 
