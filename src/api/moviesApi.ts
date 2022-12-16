@@ -12,6 +12,11 @@ const moviesApi = {
     return axiosClient.get(url, { params });
   },
 
+  getListMoviesTopRated: (params?: GetListMoviesTheatersProps) => {
+    const url = `${BASE_API_URL}/movie/top_rated`;
+    return axiosClient.get(url, { params });
+  },
+
   getDataDetailMovies: (movieId: string) => {
     const url = `${BASE_API_URL}/movie/${movieId}`;
     return axiosClient.get(url);

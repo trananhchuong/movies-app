@@ -1,0 +1,4 @@
+export const TAB_TYPE = {
+  NOW_PLAYING: "NOW_PLAYING",
+  TOP_RATED: "TOP_RATED",
+};

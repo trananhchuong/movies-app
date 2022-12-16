@@ -9,9 +9,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useInfiniteQuery } from "react-query";
 import styles from "./index.module.css";
 
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import { TAB_TYPE } from "constants/tabConstants";
+
 const Home = (): ReactElement => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
+  const [tabValue, setTabValue] = useState(TAB_TYPE.NOW_PLAYING);
 
   useEffect(() => {
     setCurrentPage(0);
@@ -19,10 +24,23 @@ const Home = (): ReactElement => {
     setTimeout(() => {
       refetch();
     }, 1000);
-  }, [searchText]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [searchText, tabValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSearchChange = (text: string) => {
     setSearchText(text);
+  };
+
+  const getApiByTab = (tab: string, params: any) => {
+    switch (tab) {
+      case TAB_TYPE.NOW_PLAYING:
+        return moviesApi.getListMoviesTheaters(params);
+
+      case TAB_TYPE.TOP_RATED:
+        return moviesApi.getListMoviesTopRated(params);
+
+      default:
+        return moviesApi.getListMoviesTheaters(params);
+    }
   };
 
   const fetchMovies = async ({ pageParam = 1 }) => {
@@ -31,9 +49,11 @@ const Home = (): ReactElement => {
     //   page: pageParam,
     // });
 
-    const dataResponse = await moviesApi.getListMoviesTheaters({
+    const params = {
       page: pageParam,
-    });
+    };
+
+    const dataResponse = await getApiByTab(tabValue, params);
     return dataResponse;
   };
 
@@ -46,6 +66,7 @@ const Home = (): ReactElement => {
     isLoading,
     refetch,
     remove,
+    status,
   } = useInfiniteQuery(`movies`, fetchMovies, {
     getNextPageParam: (lastPage: any, pages) => {
       return +lastPage.total_results > currentPage * 10
@@ -58,6 +79,11 @@ const Home = (): ReactElement => {
     },
     refetchOnWindowFocus: false,
   });
+
+  const getIsLoading = () => {
+    if (status !== "success" || isLoading) return true;
+    return false;
+  };
 
   const MoviesLoader = (itemCount: number): ReactElement => {
     return (
@@ -118,6 +144,10 @@ const Home = (): ReactElement => {
     }
   };
 
+  const handleChangeTab = (event: React.ChangeEvent<{}>, tabChange: string) => {
+    setTabValue(tabChange);
+  };
+
   return (
     <div className={styles.root}>
       <Grid container justify="center">
@@ -131,9 +161,24 @@ const Home = (): ReactElement => {
             </Grid>
           </Grid>
 
+          <Grid container justify="center" className={styles.tabBox}>
+            <Grid item xs={12} md={4}>
+              <Tabs
+                value={tabValue}
+                onChange={handleChangeTab}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+              >
+                <Tab label="Now playing" value={TAB_TYPE.NOW_PLAYING} />
+                <Tab label="Top rated" value={TAB_TYPE.TOP_RATED} />
+              </Tabs>
+            </Grid>
+          </Grid>
+
           <Grid item xs={12} className={styles.movieListContainer}>
             {/* Loading state */}
-            {isLoading && MoviesLoader(8)}
+            {getIsLoading() && MoviesLoader(8)}
 
             {/* Success state */}
             {isSuccess && renderListMovies()}
