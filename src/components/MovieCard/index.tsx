@@ -14,12 +14,11 @@ export type MovieCardProps = {
   title: string;
   year: string;
   id: string;
-  Type?: string;
   poster: string;
 };
 
 const MovieCard = (props: MovieCardProps) => {
-  const { title, year, id, Type, poster } = props;
+  const { title, year, id, poster } = props;
   const history = useHistory();
   const handleMovieSelect = () => {
     history.push(`/${id}`);

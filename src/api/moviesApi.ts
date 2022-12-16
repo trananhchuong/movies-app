@@ -12,8 +12,8 @@ const moviesApi = {
     return axiosClient.get(url, { params });
   },
 
-  get: (id: any) => {
-    const url = `/products/${id}`;
+  getDataDetailMovies: (movieId: string) => {
+    const url = `${BASE_API_URL}/movie/${movieId}`;
     return axiosClient.get(url);
   },
 };
