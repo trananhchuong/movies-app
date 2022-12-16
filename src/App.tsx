@@ -1,4 +1,6 @@
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import NoNetWork from "components/NoNetwork";
+import useNavigatorOnLine from "hooks/useNavigatorOnLine";
 import Layout from "Layout";
 import { useMemo } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -14,6 +16,8 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const isOnline = useNavigatorOnLine();
+
   // Dark theme
   const darkTheme = useMemo(() => {
     return createMuiTheme({
@@ -30,6 +34,10 @@ function App() {
       },
     });
   }, []);
+
+  if (!isOnline) {
+    return <NoNetWork />;
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
