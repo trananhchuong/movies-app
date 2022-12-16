@@ -1,6 +1,6 @@
 import { Paper } from "@material-ui/core";
 import Fallback from "components/Fallback";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
@@ -10,6 +10,8 @@ const PaperStyled = styled(Paper)`
   flex-direction: column;
 `;
 
+const Home = lazy(() => import("pages/Home"));
+
 const Layout = () => {
   return (
     <Router>
@@ -17,7 +19,7 @@ const Layout = () => {
         <Suspense fallback={<Fallback />}>
           <Switch>
             <Route exact path="/">
-              hihi
+              <Home />
             </Route>
           </Switch>
         </Suspense>
