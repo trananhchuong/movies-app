@@ -32,7 +32,9 @@ const MovieDetails = (): ReactElement => {
       } = dataResponse;
 
       const genresString = (genres || []).map((x: any) => x.name).join(", ");
-      const languageString = (spoken_languages || []).map((x: any) => x.name).join(", ");
+      const languageString = (spoken_languages || [])
+        .map((x: any) => x.name)
+        .join(", ");
       const countryString = (production_countries || [])
         .map((x: any) => x.name)
         .join(", ");
@@ -57,14 +59,11 @@ const MovieDetails = (): ReactElement => {
 
   const { isSuccess, isLoading, error, data } = useQuery(
     [`movie`, movieId],
-    // () => service.get(CONSTANTS.BASE_URL, { i: movieId, plot: "full" }),
     fetchDetailMovies,
     {
       enabled: !!movieId,
     }
   );
-
-  console.log("🚀 ~ file: index.tsx:45 ~ MovieDetails ~ data", data);
 
   return (
     <div className={styles.root}>

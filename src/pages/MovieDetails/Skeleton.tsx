@@ -26,7 +26,7 @@ const Skeleton = (): React.ReactElement => {
 
             <Divider light={false} />
 
-            {[...new Array(8)].map((_, i) => (
+            {[...new Array(3)].map((_, i) => (
               <Grid container key={i} className={styles.metaData}>
                 <Grid item xs={3} md={2} className={styles.metaLabel}>
                   <MuiSkeleton variant="text" height={40} width="90%" />
