@@ -1,0 +1,38 @@
+{
+  "files": {
+    "static/js/0.3413fc26.chunk.js": "/movies-app/static/js/0.3413fc26.chunk.js",
+    "static/js/0.3413fc26.chunk.js.map": "/movies-app/static/js/0.3413fc26.chunk.js.map",
+    "main.css": "/movies-app/static/css/main.81aa143b.chunk.css",
+    "main.js": "/movies-app/static/js/main.3b7c02d5.chunk.js",
+    "main.js.map": "/movies-app/static/js/main.3b7c02d5.chunk.js.map",
+    "runtime-main.js": "/movies-app/static/js/runtime-main.5980b378.js",
+    "runtime-main.js.map": "/movies-app/static/js/runtime-main.5980b378.js.map",
+    "static/js/3.b607fdcf.chunk.js": "/movies-app/static/js/3.b607fdcf.chunk.js",
+    "static/js/3.b607fdcf.chunk.js.map": "/movies-app/static/js/3.b607fdcf.chunk.js.map",
+    "static/js/4.b5b36df3.chunk.js": "/movies-app/static/js/4.b5b36df3.chunk.js",
+    "static/js/4.b5b36df3.chunk.js.map": "/movies-app/static/js/4.b5b36df3.chunk.js.map",
+    "static/css/5.99a11d43.chunk.css": "/movies-app/static/css/5.99a11d43.chunk.css",
+    "static/js/5.0d3fd25d.chunk.js": "/movies-app/static/js/5.0d3fd25d.chunk.js",
+    "static/js/5.0d3fd25d.chunk.js.map": "/movies-app/static/js/5.0d3fd25d.chunk.js.map",
+    "static/css/6.671aed2a.chunk.css": "/movies-app/static/css/6.671aed2a.chunk.css",
+    "static/js/6.267b62b3.chunk.js": "/movies-app/static/js/6.267b62b3.chunk.js",
+    "static/js/6.267b62b3.chunk.js.map": "/movies-app/static/js/6.267b62b3.chunk.js.map",
+    "static/js/7.c9af52b0.chunk.js": "/movies-app/static/js/7.c9af52b0.chunk.js",
+    "static/js/7.c9af52b0.chunk.js.map": "/movies-app/static/js/7.c9af52b0.chunk.js.map",
+    "index.html": "/movies-app/index.html",
+    "static/css/5.99a11d43.chunk.css.map": "/movies-app/static/css/5.99a11d43.chunk.css.map",
+    "static/css/6.671aed2a.chunk.css.map": "/movies-app/static/css/6.671aed2a.chunk.css.map",
+    "static/css/main.81aa143b.chunk.css.map": "/movies-app/static/css/main.81aa143b.chunk.css.map",
+    "static/js/0.3413fc26.chunk.js.LICENSE.txt": "/movies-app/static/js/0.3413fc26.chunk.js.LICENSE.txt",
+    "static/js/3.b607fdcf.chunk.js.LICENSE.txt": "/movies-app/static/js/3.b607fdcf.chunk.js.LICENSE.txt",
+    "static/js/4.b5b36df3.chunk.js.LICENSE.txt": "/movies-app/static/js/4.b5b36df3.chunk.js.LICENSE.txt",
+    "static/media/not_internet.19255cee.svg": "/movies-app/static/media/not_internet.19255cee.svg",
+    "static/media/tmdb_logo.bb8aa703.svg": "/movies-app/static/media/tmdb_logo.bb8aa703.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5980b378.js",
+    "static/js/3.b607fdcf.chunk.js",
+    "static/css/main.81aa143b.chunk.css",
+    "static/js/main.3b7c02d5.chunk.js"
+  ]
+}
