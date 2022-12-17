@@ -36,3 +36,9 @@
 .buttonLayout {
   padding: 6px;
 }
+
+@media only screen and (max-width: 576px) {
+  .layout {
+    display: none;
+  }
+}
