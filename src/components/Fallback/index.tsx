@@ -1,20 +1,12 @@
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { ReactElement } from "react";
-
-import styled from "styled-components";
-
-const FallbackStyled = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+import styles from "./index.module.css";
 
 const Fallback = (): ReactElement => {
   return (
-    <FallbackStyled>
+    <div className={styles.root}>
       <CircularProgress />
-    </FallbackStyled>
+    </div>
   );
 };
 

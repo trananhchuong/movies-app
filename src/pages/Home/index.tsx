@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, IconButton } from "@material-ui/core";
 import moviesApi from "api/moviesApi";
 import MovieCard from "components/MovieCard";
 import Skeleton from "components/MovieCard/Skeleton";
@@ -11,11 +11,15 @@ import styles from "./index.module.css";
 
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import { TAB_TYPE } from "constants/tabConstants";
+import { LAYOUT_TYPE, TAB_TYPE } from "constants/tabConstants";
+
+import AppsIcon from "@material-ui/icons/Apps";
+import ListIcon from "@material-ui/icons/List";
 
 const Home = (): ReactElement => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
+  const [layoutType, setLayoutType] = useState(LAYOUT_TYPE.GRID);
   const [tabValue, setTabValue] = useState(TAB_TYPE.NOW_PLAYING);
 
   useEffect(() => {
@@ -120,14 +124,22 @@ const Home = (): ReactElement => {
                 .results.map((item: any) => {
                   const { title, id, release_date, poster_path } = item;
 
+                  const isLayoutGrid = layoutType === LAYOUT_TYPE.GRID;
+
                   return (
-                    <Grid item xs={12} md={3} key={id}>
+                    <Grid
+                      item
+                      xs={12}
+                      key={id}
+                      {...(isLayoutGrid && { md: 3 })}
+                    >
                       <MovieCard
                         {...{
                           title,
                           id,
                           year: release_date,
                           poster: getImageFullPath(poster_path),
+                          isLayoutGrid
                         }}
                       />
                     </Grid>
@@ -173,6 +185,30 @@ const Home = (): ReactElement => {
                 <Tab label="Now playing" value={TAB_TYPE.NOW_PLAYING} />
                 <Tab label="Top rated" value={TAB_TYPE.TOP_RATED} />
               </Tabs>
+            </Grid>
+          </Grid>
+
+          <Grid container justify="flex-end" className={styles.layout}>
+            <Grid container item xs={12} md={4} justify="flex-end">
+              <IconButton
+                aria-label="back"
+                onClick={() => {
+                  setLayoutType(LAYOUT_TYPE.GRID);
+                }}
+                className={styles.buttonLayout}
+              >
+                <AppsIcon />
+              </IconButton>
+
+              <IconButton
+                aria-label="back"
+                onClick={() => {
+                  setLayoutType(LAYOUT_TYPE.LIST);
+                }}
+                className={styles.buttonLayout}
+              >
+                <ListIcon />
+              </IconButton>
             </Grid>
           </Grid>
 

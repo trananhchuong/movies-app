@@ -4,13 +4,8 @@ import Fallback from "components/Fallback";
 import ScrollToTop from "components/ScrollToTop";
 import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import styled from "styled-components";
+import styles from "./index.module.css";
 
-const PaperStyled = styled(Paper)`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`;
 
 const Home = lazy(() => import("pages/Home"));
 const MovieDetails = lazy(() => import("pages/MovieDetails"));
@@ -18,7 +13,7 @@ const MovieDetails = lazy(() => import("pages/MovieDetails"));
 const Layout = () => {
   return (
     <Router>
-      <PaperStyled square>
+      <Paper square className={styles.root}>
         <ScrollToTop />
         <AppHeader />
         <Suspense fallback={<Fallback />}>
@@ -31,7 +26,7 @@ const Layout = () => {
             </Route>
           </Switch>
         </Suspense>
-      </PaperStyled>
+      </Paper>
     </Router>
   );
 };
